@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  /* First Choice brand palette (sampled from the company logo) */
+  --color-brand: #c8102e; /* logo red */
+  --color-brand-dark: #9c0c24;
+  --color-brand-soft: #fbeaec;
+  --color-royal: #21419b; /* logo blue */
+  --color-royal-dark: #173078;
+  --color-navy: #14265c;
+  --color-navy-deep: #0c1836;
+}
+
+html {
+  scroll-behavior: smooth;
+}
