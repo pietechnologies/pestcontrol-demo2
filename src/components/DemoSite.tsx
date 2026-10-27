@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.svg";
 import Estimator, { ZipChecker } from "./Estimator";
 import BookingModal from "./BookingModal";
 import {

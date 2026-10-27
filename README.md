@@ -30,49 +30,30 @@ GitHub Pages.
 
 ## Deploy to GitHub Pages
 
-### Option A — fastest (drag the single file)
+Deployment is automated by `.github/workflows/deploy.yml`. On every push to `main` it runs
+`npm ci && npm run build` and publishes `dist/` with `actions/deploy-pages`.
 
-1. `npm run build`
-2. Create a repo, copy `dist/index.html` into it (root), and add an empty `.nojekyll` file.
-3. Repo → **Settings → Pages → Source: Deploy from a branch → `main` / `(root)`**.
-4. Live at `https://<user>.github.io/<repo>/`.
+One-time setup (already done for this repo):
 
-### Option B — GitHub Actions (auto-deploy on push)
+1. Repo → **Settings → Pages → Source: GitHub Actions** (not "Deploy from a branch").
+2. Push to `main` — the workflow builds and publishes automatically.
+3. Live at `https://<user>.github.io/<repo>/`.
 
-Create `.github/workflows/deploy.yml`:
+> ⚠️ Do **not** point Pages at `main` / `(root)`. The root `index.html` is the Vite *dev* entry
+> (`<script src="/src/main.tsx">`). Browsers cannot execute `.tsx` files, so Pages serves a blank
+> page. Pages must publish the **built `dist/` output only**, never the source tree.
 
-```yaml
-name: Deploy to Pages
-on:
-  push: { branches: [main] }
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 20 }
-      - run: npm ci
-      - run: npm run build
-      - run: touch dist/.nojekyll
-      - uses: actions/upload-pages-artifact@v3
-        with: { path: dist }
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: github-pages
-    steps:
-      - uses: actions/deploy-pages@v4
+> The single-file plugin inlines all CSS, JS and the logo into one `dist/index.html`, and
+> `base: "./"` is set in `vite.config.ts`, so the build also works from a repo sub-path.
+
+### Manual build for a one-off upload
+
+```bash
+npm run build        # -> dist/index.html (self-contained)
 ```
 
-Then set **Settings → Pages → Source: GitHub Actions**.
-
-> If you ever remove the single-file plugin from `vite.config.ts`, add
-> `base: "/<repo-name>/"` to the Vite config so asset URLs resolve on Pages.
+Upload the **contents of `dist/`** (the built `index.html`, not the source one) plus an empty
+`.nojekyll` file.
 
 ## Notes
 
