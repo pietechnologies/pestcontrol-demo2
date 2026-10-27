@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 72" width="268" height="72" role="img" aria-label="First Choice Pest Control">
+  <!-- Shield mark -->
+  <defs>
+    <linearGradient id="fc-shield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#21419b" />
+      <stop offset="1" stop-color="#14265c" />
+    </linearGradient>
+  </defs>
+  <path d="M4 5h56v32c0 14-11.5 24-28 30C15.5 61 4 51 4 37V5Z" fill="url(#fc-shield)" />
+  <path d="M11 12h42v25c0 10-8.6 17.6-21 23-12.4-5.4-21-13-21-23V12Z" fill="none" stroke="#c8102e" stroke-width="2.5" opacity=".95" />
+  <!-- Bug / pest mark -->
+  <g fill="#ffffff">
+    <ellipse cx="32" cy="30" rx="6.5" ry="9" />
+    <circle cx="32" cy="18.5" r="4.2" fill="#c8102e" />
+    <path d="M32 5v6.5M27 6.6l2.6 4.2M37 6.6l-2.6 4.2" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" />
+    <path d="M25 24l-7-3M25 31h-7.5M26 38l-6.5 4M39 24l7-3M39 31h7.5M38 38l6.5 4" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".9" />
+  </g>
+  <!-- Wordmark -->
+  <text x="74" y="31" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="0.5" fill="#14265c">FIRST CHOICE</text>
+  <text x="74" y="51" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.6" fill="#c8102e">PEST CONTROL</text>
+  <text x="75" y="65" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.6" fill="#64748b">DECATUR, GA · LICENSED &amp; INSURED</text>
+</svg>

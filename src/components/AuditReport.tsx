@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.svg";
 import {
   SITE,
   currentState,
